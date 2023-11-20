@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.3"
     kotlin("jvm") version "1.8.22"
     kotlin("plugin.spring") version "1.8.22"
+    kotlin("plugin.jpa") version "1.8.22"
 }
 
 group = "com.example"
@@ -19,17 +20,32 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    // flyway
+    implementation("org.flywaydb:flyway-core:9.16.0")
 
     // swagger springdoc
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
+    // postgresql
+    runtimeOnly("org.postgresql:postgresql")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
+
+//allOpen {
+//    annotation("jakarta.persistence.Entity")
+//    annotation("jakarta.persistence.Embeddable")
+//    annotation("jakarta.persistence.MappedSuperclass")
+//}
+
+
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {

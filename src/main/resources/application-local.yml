@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: postgres
+    password: 1q2w3e
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+        highlight_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    url: jdbc:postgresql://localhost:5432/testdb
+    user: postgres
+    password: 1q2w3e
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
+    org:
+      hibernate:
+        type.descriptor.sql: TRACE
+        SQL: DEBUG
