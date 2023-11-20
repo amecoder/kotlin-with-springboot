@@ -1,6 +1,6 @@
-package com.example.demo.kakao.dto
+package com.example.demo.blog.dto
 
-class BlogDto (
+data class BlogDto (
     val query: String,
     val sort: String,
     val page: Int,
