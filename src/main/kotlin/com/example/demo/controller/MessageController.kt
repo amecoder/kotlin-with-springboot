@@ -5,8 +5,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class MessageController {
-    @GetMapping("/")
-//    fun index(@RequestParam("name") name: String) = "Hello, $name!"
+    @GetMapping("/test")
     fun index() = listOf(
             Message("1", "Hello!"),
             Message("2", "Bonjour!"),
