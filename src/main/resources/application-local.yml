@@ -4,6 +4,8 @@ server:
     context-path: /
     encoding:
       charset: UTF-8
+      enabled: true
+      force: true
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -19,7 +21,6 @@ spring:
         show_sql: false
         format_sql: true
         highlight_sql: true
-
   flyway:
     enabled: true
     baseline-on-migrate: true
@@ -34,5 +35,5 @@ logging:
     root: INFO
     org:
       hibernate:
-        type.descriptor.sql: TRACE
         SQL: DEBUG
+        type.descriptor.sql: TRACE

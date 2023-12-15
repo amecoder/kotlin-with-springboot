@@ -1,11 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    val kotlinVersion = "1.8.22"
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.3"
-    kotlin("jvm") version "1.8.22"
-    kotlin("plugin.spring") version "1.8.22"
-    kotlin("plugin.jpa") version "1.8.22"
+    kotlin("jvm") version kotlinVersion
+    kotlin("plugin.spring") version kotlinVersion
+    kotlin("plugin.jpa") version kotlinVersion
 }
 
 group = "com.example"
@@ -25,6 +26,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
     // postgresql
     runtimeOnly("org.postgresql:postgresql")
 
@@ -39,11 +42,15 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-//allOpen {
-//    annotation("jakarta.persistence.Entity")
+allOpen {
+    annotation("jakarta.persistence.Entity")
 //    annotation("jakarta.persistence.Embeddable")
 //    annotation("jakarta.persistence.MappedSuperclass")
-//}
+}
+
+noArg {
+    annotation("jakarta.persistence.Entity")
+}
 
 
 
