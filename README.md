@@ -5,7 +5,7 @@ install docker && run
 docker pull postgres
 ```
 ```bash
-docker run -it --rm --name postgres.test -e POSTGRES_PASSWORD=1q2w3e -p 5432:5432 -d postgres
+docker run -it --name postgres.test -e POSTGRES_PASSWORD=1q2w3e -p 5432:5432 -d postgres
 ```
 exec postgres.test and create database
 ```bash
